@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ijvm-asm -f /home/laptop/ijvm-tools-0.9/ijvm.spec /home/laptop/ijvm-tools-0.9/test.j /home/laptop/ijvm-tools-0.9/stuff
+mic1-asm /home/laptop/ijvm-tools-0.9/test/ijvm.mal /home/laptop/ijvm-tools-0.9/ijvmmal.mic1
+
+mic1 /home/laptop/ijvm-tools-0.9/ijvmmal.mic1 /home/laptop/ijvm-tools-0.9/stuff 4 5
