@@ -1,0 +1,18 @@
+ishl = 0x78:
+	MAR = SP = SP -1; rd
+	OPC = 1 << 8
+	OPC = OPC >> 1
+	OPC = OPC >> 1
+	OPC = OPC >> 1
+	H = OPC - 1
+	TOS = H AND TOS
+ishl_startloop:
+	Z = TOS; if (Z) goto ishl_loopdone; else goto ishl_loop
+ishl_loop:
+	H = MDR
+	MDR = MDR + H
+	TOS = TOS - 1
+	goto ishl_startloop
+ishl_loopdone:
+	MAR = SP = SP - 1; wr
+	TOS = MDR; goto main
